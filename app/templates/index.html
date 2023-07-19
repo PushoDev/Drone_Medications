@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-lg-6">
+        <h1 class="color-light"><center> * Welcome to My App * </center></h1>
+        <p>
+            This projects allows you to manage a fleet of drones to make fast and efficient deliveries. With our drones, you will
+            be able to deliver medicines in places that are difficult to access in a safe and timely manner.
+            Our platform offers the following functionalities:
+        </p>
+        <li>Drone registration: Register your drones on our platform to start using them in your operations.</li>
+        <li>Medicine loading: Load the necessary medicines on each drone before delivery.</li>
+        <li>Loaded content check: You can check which drugs are loaded on each drone before sending it to its destination.</li>
+        <li>Availability of drones for cargo: Check the updated availability of drones available to load new shipments.</li>
+        <li>Drone Battery Level: Check the current battery level of the selected drone before starting a delivery.</li>     
+            
+            
+        </p>
+    </div>
+    
+    <div class="col-lg-6 card">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <a href="/int_drone" class="btn btn-primary btn-block">
+                    <i class="bi bi-journal-plus"></i> Register Drone
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="/int_medication" class="btn btn-primary btn-block">
+                    <i class="bi bi-plus-square"></i> Register Medication
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="/loaded_drones" class="btn btn-primary btn-block">
+                    <i class="bi bi-journal-check"></i> View Loaded Drones
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="/int_drone/drone_registers" class="btn btn-primary btn-block">
+                    <i class="bi bi-journal-plus"></i> Add Medications to Drones
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+</div>
+
+{% endblock %}

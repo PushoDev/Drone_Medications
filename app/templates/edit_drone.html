@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="col-4 offset-4">
+  <div class="card card-body">
+    <form action="/drone/update_drone/{{ drones.0 }}" method="post">
+      <center><h1>Update Drone</h1></center>
+    <div class="mb-3">
+    <label for="formGroupExampleInput" class="form-label">Serial Number</label>
+    <input type="text" class="form-control" name="serial_number" placeholder="serial_number" value= "{{ drones.1 }}">
+    </div>
+  
+  <div class="form-floating">
+    <select class="form-select" name="model" value="{{ drones.2 }}">
+      <option selected>Selects</option>
+      <option value="Lightweight">LIGHTWEIGHT</option>
+      <option value="Middleweight">MIDDLEWEIGHT</option>
+      <option value="Cruiserweight">CRUISERWEIGHT</option>
+      <option value="Heavyweight">HEAVYWEIGHT</option>      
+    </select>
+    <label for="floatingSelect">Selects drone model</label>
+  </div>
+  
+  <div class="mb-3">
+    <label for="formGroupExampleInput2" class="form-label">Weight Limit</label>
+    <input type="text" class="form-control" name="weight_limit" placeholder="weight_limit" value="{{ drones.3 }}">
+  </div>
+  
+  <div class="mb-3">
+    <label for="formGroupExampleInput2" class="form-label">Battery Capacity</label>
+    <input type="text" class="form-control" name="battery_capacity" placeholder="battery_capacity" value="{{ drones.4 }}">
+  </div>
+
+  <div class="form-floating">
+    <select class="form-select" name="state" value="{{ drones.5}}">
+      <option selected>Selects</option>
+      <option value="IDLE">IDLE</option>
+      <option value="LOADINGS">LOADINGS</option>
+      <option value="LOADER">LOADER</option>
+      <option value="DELIVERING">DELIVERING</option>
+      <option value="DELIVERED">DELIVERED</option>
+      <option value="RETURNING">RETURNING</option>
+    </select>
+    <label for="floatingSelect">Selects drone state</label>
+  </div>
+
+  <center>
+    <button type="submit" class="btn btn-primary"> Update </button>
+  </center>
+  </form>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- favicon -->
+  <link rel="icon" href="{{ url_for('static', filename='/image/icons/favicon.png') }}" type="image/png">
+  <!-- Bootstrap and others -->
+  <link rel="stylesheet" href="{{ url_for('static', filename = '/css/main.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename = '/css/bootstrap.min.css')}}">
+  <script src="{{ url_for('static', filename='/js/bootstrap.min.js')}}"></script>
+  <!-- Icons bootstrap new -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='/css/icons/font/bootstrap-icons.css') }}">
+
+  <title>Drone Medications Pusho.Dev</title>
+</head>
+
+<body class="bg-primary">
+  <div class="container pt-4">
+    <nav class="container pt-4 fixed-top navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="https://puschoft.blogspot.com"> .:: PuSchoft ::. </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Acerca de</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <br>
+  <br>
+  
+  <!-- Body Projects -->
+  <div class="container p-4">
+    <figure class="text-center">
+      <blockquote class="blockquote">
+        <p>APIs Rect Python. Medication to Drones</p>
+      </blockquote>
+      <figcaption class="blockquote-footer">
+        Projects created by: <cite title="pusho.dev -- Luis A. Guisado --">pusho.dev -- Luis A. Guisado --</cite>
+      </figcaption>
+    </figure>
+      <!-- Projects -->
+      {% block body %}
+      {% endblock %}
+
+  </div>
+
+
+
+  <!-- End body projects -->
+  <br>
+  <br>
+  <center>
+    <p>Projects created by: pusho.dev -- Luis A. Guisado --</p>
+  </center>
+  <!-- Just an image -->
+  <nav class="container pt-4 navbar fixed-bottom navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+      <img src="{{ url_for('static', filename = 'image/icons/logo.png') }}" width="90" height="30" alt="">
+    </a>
+  </nav>
+
+  <script src="{{ url_for('static', filename='/js/bootstrap.min.js')}}"></script>
+</body>
+
+</html>  

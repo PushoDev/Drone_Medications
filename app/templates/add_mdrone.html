@@ -1,0 +1,67 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+
+<form action="/add_medication_to_drone/{{ drones.0 }}" method="post">
+    <label>Serial Number</label>
+    <input type="text" name="serial_number" placeholder="Serial Number" value="{{ drones.1 }}" disabled>
+
+    <label>Model</label>
+    <select name="model" disabled>
+        <option value="{{ drones.2 }}">{{ drones.2 }}</option>
+    </select>
+
+    <label>Weight Limit</label>
+    <input type="text" name="weight_limit" placeholder="Weight Limit" value="{{ drones.3 }}" disabled>
+
+    <label>Battery Capacity</label>
+    <input type="text" name="battery_capacity" placeholder="Battery Capacity" value="{{ drones.4 }}" disabled>
+
+    <label>State</label>
+    <select name="state" disabled>
+        <option value="{{ drones.5 }}">{{ drones.5 }}</option>
+    </select>
+
+    <br><br>
+
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Weight</th>
+                <th>Code</th>
+                <th>Image</th>
+                <th>Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for medication in medications %}
+            <tr>
+                <td>{{ medication[0] }}</td>
+                <td>{{ medication[1] }}</td>
+                <td>{{ medication[2] }}</td>
+                <td>{{ medication[3] }}</td>
+                <td>
+                    {% if medication[4] %}
+                    <img src="{{ url_for('static', filename='image/uploads/' + medication[4]) }}" alt="Medication Image"
+                        width="50">
+                    {% else %}
+                    No Image
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="/drones/{{ drones.0 }}/medication/{{ medication[0] }}" class="btn btn-primary">
+                        <i class="bi bi-plus-circle"></i> Add Medication
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-primary">Add Medications to Drone</button>
+</form>
+
+{% endblock %}

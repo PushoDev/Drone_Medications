@@ -1,33 +1,37 @@
 # Drone_Medications
+
 REST API to manage drug delivery using drones
 
-# Main features
-1.- Register Drone
-2.- Register Medication
-3.- Cagar Medicamentos en un Drone
-4.- Ver Drones cargados
+<div align="center">
+  <img src="images/min_1.png" alt="Star Project">
+</div>
 
-# Requisitos previos
-1.- Visual Studio Code
-2.- Python
-3.- Xampp
+## Main features
+1. Register Drone
+2. Register Medication
+3. Load Medications into a Drone
+4. View Loaded Drones
 
-# Instalación
-1.- Crear ambiente virtual: python -m venv registro_dm
-2.- Activar ambiente: .\registro_dm\Scripts\activate
-3.- Luego instalar el requeirements.txt: pip install -r requeirements.txt
-4.- Crear o importar base datos register_dm.sql
-5.- Ejecutar: app.py
-6.- localhost:8590 o http://127.0.0.1:8590
+## Prerequisites
+1. [Visual Studio Code](https://code.visualstudio.com/download)
+2. [Python](https://www.python.org/downloads/)
+3. [XAMPP](https://www.apachefriends.org/index.html)
 
-# Contribución
-Solamente me gustaria saber que mi ejercicio les gusta y asi cada dia mejoro mi trabajo.
+## Installation
+1. Create a virtual environment: `python -m venv registro_dm`
+2. Activate the environment: `.\registro_dm\Scripts\activate`
+3. Install the requirements.txt file: `pip install -r requirements.txt`
+4 .Create or import register_dm.sql database.
+5 .Run: app.py 6.- localhost:8590 or http://127.
+0 .0 .1 :8590
 
-# Licencia
-Gratis, la unica condicion es saber a donde va mi codigo y su uso.
+## Contribution 
+I would love to know if you like my project and how I can improve it further!
 
-# Contacto
-lguisado90@gmail.com
-bethocubans1990@hotmail.com
+## License 
+This project is free to use, with the only condition being informed of its destination and usage.
 
-https://puschoft.blogspot.com
+## Contact 
+- Email 1: lguisado90@gmail.com  
+- Email 2: bethocubans1990@hotmail.com  
+- Personal Blog: [Puschoft's Blog](https://puschoft.blogspot.com)

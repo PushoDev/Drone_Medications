@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<form action="/int_drone/drone_registers" method="post">
+<table class="table table-bordered table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Serial Number</th>
+            <th>Model</th>
+            <th>Weight Limit</th>
+            <th>Battery Capacity</th>
+            <th>State</th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for drone in drones %}
+        <tr>
+            <td>{{ drone[0] }}</td>
+            <td>{{ drone[1] }}</td>
+            <td>{{ drone[2] }}</td>
+            <td>{{ drone[3] }}</td>
+            <td>{{ drone[4] }}</td>
+            <td>{{ drone[5] }}</td>
+            <td>
+                <a href="/add_medication_to_drone/{{ drone[0] }}" class="btn btn-primary">
+                    <i class="bi bi-plus"></i>
+                    Add Medication
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+  <h1>Loaded Drones</h1>
+
+  {% if drones %}
+    <table class="table table-striped table-hover table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>ID</th>
+          <th>Serial Number</th>
+          <th>Model</th>
+          <th>Weight Limit</th>
+          <th>Battery Capacity</th>
+          <th>State</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for drone in drones %}
+        <tr>
+          <td>{{ drone[0] }}</td>
+          <td>{{ drone[1] }}</td>
+          <td>{{ drone[2] }}</td>
+          <td>{{ drone[3] }}</td>
+          <td>{{ drone[4] }}</td>
+          <td>{{ drone[5] }}</td>
+          <td>
+            <a href="/empty_drone/{{ drone[0] }}" class="btn btn-danger">
+              <i class="bi bi-box-arrow-down"></i>
+              Empty Drone
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  {% else %}
+    <p>No drones are currently loaded.</p>
+  {% endif %}
+
+{% endblock %}

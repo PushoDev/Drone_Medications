@@ -1,0 +1,125 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="container pt-4">
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Perfect</strong> {{ message }} ...
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+</div>
+
+<div class="card card-body d-grid gap-6 col-6 mx-auto">
+  <form action="/register_medication" method="post" class="form-floating" enctype="multipart/form-data">
+    <center>
+      <p><h1>Register Medication</h1></p>      
+    </center>
+  
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" class="form-control" required>
+    </div>
+  
+    <div class="form-group">
+      <label for="weight">Weight:</label>
+      <input type="number" name="weight" id="weight" class="form-control" min="0.01" max="500" step="0.01" required>
+    </div>
+  
+    <div class="form-group">
+      <label for="code">Code:</label>
+      <input type="text" name="code" id="code" class="form-control" pattern="[A-Z0-9_]+" required>
+    </div>
+  
+    <div class="form-group">
+      <label for="image_path">Image Path:</label>
+      <input type="file" name="image_path" id="image_path" class="form-control" accept="images/*"
+        onchange="previewImage(this)">
+    </div>
+  
+    <!-- Contenedor para mostrar la miniatura -->
+    <div id="contenedor-miniatura"></div>
+  
+    <center>
+      <div class="d-grid gap-2 col-6 mx-auto pt-3">
+        <button type="submit" class="btn btn-primary">
+          <i class="bi bi-arrow-up-circle"></i> Send
+        </button>
+        <button type="reset" class="btn btn-warning">
+          <i class="bi bi-arrow-counterclockwise"></i> Reset
+        </button>
+      </div>
+    </center>
+  </form>
+
+</div>
+
+<br>
+
+<table class="table table-striped table-hover table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Weight</th>
+      <th>Code</th>
+      <th>Image</th>
+      <th>Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for medication in medications %}
+    <tr>
+      <td>{{ medication[0] }}</td>
+      <td>{{ medication[1] }}</td>
+      <td>{{ medication[2] }}</td>
+      <td>{{ medication[3] }}</td>
+      <td>
+        {% if medication[4] %}
+        <img src="{{ url_for('static', filename='image/uploads/' + medication[4]) }}" alt="Medication Image" width="50">
+        {% else %}
+        No Image
+        {% endif %}
+      </td>
+      <td>
+        <a href="/edit_medication/{{ medication[0] }}" class="btn btn-secondary">
+          <i class="bi bi-pencil-fill"></i>
+          Edit
+        </a>
+        <a href="/delete_medication/{{ medication[0] }}" class="btn btn-danger">
+          <i class="bi bi-trash-fill"></i>
+          Delete
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+<script>
+  function previewImage(input) {
+    var container = document.getElementById('contenedor-miniatura');
+    container.innerHTML = '';
+
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        var img = document.createElement('img');
+        img.src = e.target.result;
+        img.width = 100;
+        container.appendChild(img);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+</script>
+
+{% endblock %}
